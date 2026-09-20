@@ -261,7 +261,7 @@ body {
   height: 100vh;
   min-height: 650px;
 
-  background-image: url("assets/background.jpg");
+  background-image: url("background.jpg");
 
   background-size: cover;
 
@@ -1865,7 +1865,7 @@ body {
 
   overflow: hidden;
 
-  background-image: url("assets/background.jpg");
+  background-image: url("background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
