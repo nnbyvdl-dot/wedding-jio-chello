@@ -1,0 +1,2074 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #100d09;
+}
+
+/* =========================================
+   OPENING SCREEN
+========================================= */
+
+#door-section {
+  position: fixed;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  background: #100d09;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  z-index: 9999;
+
+  opacity: 1;
+
+  transform: scale(1);
+
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================
+   AREA PINTU
+========================================= */
+
+.door-container {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================
+   PINTU
+========================================= */
+
+#door-image {
+  display: block;
+
+  width: 250px;
+
+  max-width: 55vw;
+  max-height: 65vh;
+
+  height: auto;
+
+  object-fit: contain;
+
+  cursor: pointer;
+
+  position: relative;
+
+  z-index: 2;
+
+  transform: scale(1);
+
+  transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+}
+
+/* =========================================
+   NAMA
+========================================= */
+
+.heading-door {
+  position: absolute;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  margin: 0;
+
+  padding: 0;
+
+  color: #e8d3a3;
+
+  font-family: "Sacramento", cursive;
+
+  font-size: 55px;
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  z-index: 5;
+
+  pointer-events: none;
+}
+
+/* VIRGIO */
+
+.heading-left {
+  right: calc(50% + 165px);
+}
+
+/* CHELOMITA */
+
+.heading-right {
+  left: calc(50% + 165px);
+}
+
+/* =========================================
+   KETIKA PINTU DIKLIK
+========================================= */
+
+#door-section.opening #door-image {
+  transform: scale(1.35);
+}
+
+#door-section.opening {
+  transform: scale(1.08);
+}
+
+/* =========================================
+   SETELAH SELESAI
+========================================= */
+
+#door-section.hide {
+  opacity: 0;
+
+  transform: scale(1.12);
+
+  pointer-events: none;
+}
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+#main-content {
+  width: 100%;
+  background: #100d09;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+#main-navbar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  padding: 22px 6%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: 1000;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-20px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease,
+    visibility 0.8s ease;
+
+  color: #f3ead8;
+}
+
+/* Navbar muncul */
+
+#main-navbar.show {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform: translateY(0);
+}
+
+.navbar-brand {
+  font-family: "Sacramento", cursive;
+
+  font-size: 34px;
+
+  color: #e8d3a3;
+}
+
+.navbar-menu {
+  display: flex;
+
+  gap: 35px;
+}
+
+.navbar-menu a {
+  color: #f3ead8;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  transition: color 0.3s ease;
+}
+
+.navbar-menu a:hover {
+  color: #e8d3a3;
+}
+/* =========================================
+   HERO
+========================================= */
+
+.hero-section {
+  position: relative;
+
+  width: 100%;
+
+  height: 100vh;
+  min-height: 650px;
+
+  background-image: url("assets/background.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  color: #f3ead8;
+
+  overflow: hidden;
+}
+
+/* PERGELAPAN BACKGROUND */
+
+.hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.68));
+
+  z-index: 1;
+}
+
+/* ISI HERO */
+
+.hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  padding: 20px;
+}
+
+.hero-small {
+  margin: 0 0 15px;
+
+  font-size: 17px;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+}
+
+.hero-names {
+  margin: 0;
+
+  color: #e8d3a3;
+
+  font-family: "Sacramento", cursive;
+
+  font-size: clamp(65px, 9vw, 110px);
+
+  font-weight: 400;
+
+  line-height: 1.05;
+}
+
+.hero-names span {
+  font-family: "Poppins", sans-serif;
+
+  font-size: 0.45em;
+
+  font-weight: 300;
+
+  margin: 0 10px;
+}
+
+.hero-date {
+  margin-top: 25px;
+
+  font-size: 14px;
+
+  letter-spacing: 3px;
+}
+
+.hero-date span {
+  margin: 0 8px;
+}
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+.countdown {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 18px;
+
+  margin-top: 35px;
+}
+
+.countdown-item {
+  min-width: 75px;
+
+  padding: 12px 8px;
+
+  border-top: 1px solid rgba(232, 211, 163, 0.6);
+
+  border-bottom: 1px solid rgba(232, 211, 163, 0.6);
+}
+
+.countdown-item span {
+  display: block;
+
+  font-size: 27px;
+
+  font-weight: 400;
+
+  color: #e8d3a3;
+}
+
+.countdown-item small {
+  font-size: 10px;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+/* =========================================
+   MEMPELAI SECTION
+========================================= */
+
+.couple-section {
+  min-height: 100vh;
+
+  padding: 120px 20px;
+
+  background: #100d09;
+
+  color: #f3ead8;
+
+  text-align: center;
+}
+
+.couple-container {
+  max-width: 900px;
+
+  margin: auto;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+/* =========================================
+   FOTO MEMPELAI
+========================================= */
+
+.couple-photo {
+  width: 230px;
+  height: 300px;
+
+  margin: 0 auto 30px;
+
+  overflow: hidden;
+
+  border-radius: 0;
+}
+
+.couple-photo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+/* =========================================
+   INFO MEMPELAI
+========================================= */
+
+.couple-person {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.couple-role {
+  margin: 0 0 5px;
+
+  font-size: 13px;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  color: #c9bfa9;
+}
+
+.couple-name {
+  margin: 0;
+
+  color: #e8d3a3;
+
+  font-size: 38px;
+
+  font-weight: 600;
+
+  line-height: 1.2;
+}
+
+.couple-parents {
+  margin-top: 10px;
+
+  color: #c9bfa9;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+/* =========================================
+   INSTAGRAM
+========================================= */
+
+.instagram-button {
+  width: 38px;
+  height: 38px;
+
+  margin: 12px auto 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(232, 211, 163, 0.6);
+  border-radius: 50%;
+
+  color: #e8d3a3;
+
+  text-decoration: none;
+  font-size: 16px;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.instagram-button:hover {
+  transform: translateY(-4px);
+
+  background: rgba(232, 211, 163, 0.1);
+}
+
+/* =========================================
+   TANDA &
+========================================= */
+
+.couple-and {
+  margin: 80px 0;
+
+  color: #e8d3a3;
+
+  font-family: "Sacramento", cursive;
+
+  font-size: 75px;
+
+  line-height: 1;
+}
+
+/* =========================================
+   EVENT SECTION
+========================================= */
+
+.event-section {
+  min-height: 100vh;
+
+  padding: 120px 20px;
+
+  background: #100d09;
+
+  color: #f3ead8;
+
+  text-align: center;
+}
+
+.event-container {
+  max-width: 700px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+/* =========================================
+   JUDUL EVENT
+========================================= */
+
+.event-title {
+  margin-bottom: 35px;
+}
+
+.event-subtitle {
+  margin: 0 0 8px;
+
+  font-size: 11px;
+
+  letter-spacing: 3px;
+
+  color: #c9bfa9;
+}
+
+.event-title h2 {
+  margin: 0;
+
+  color: #e8d3a3;
+
+  font-family: "Sacramento", cursive;
+
+  font-size: 55px;
+
+  font-weight: 400;
+
+  line-height: 1.1;
+}
+
+/* =========================================
+   EVENT CARD
+========================================= */
+
+.event-card {
+  width: 100%;
+
+  padding: 35px 25px;
+
+  border-top: 1px solid rgba(232, 211, 163, 0.35);
+
+  border-bottom: 1px solid rgba(232, 211, 163, 0.35);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 50px;
+}
+
+/* =========================================
+   TANGGAL
+========================================= */
+
+.event-date {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  min-width: 150px;
+}
+
+.event-day {
+  color: #e8d3a3;
+
+  font-size: 55px;
+
+  font-weight: 300;
+
+  line-height: 1;
+}
+
+.event-month {
+  margin-top: 5px;
+
+  font-family: "Sacramento", cursive;
+
+  color: #e8d3a3;
+
+  font-size: 32px;
+
+  line-height: 1;
+}
+
+.event-year {
+  margin-top: 5px;
+
+  font-size: 12px;
+
+  letter-spacing: 3px;
+
+  color: #c9bfa9;
+}
+
+/* =========================================
+   INFO
+========================================= */
+
+.event-info {
+  text-align: left;
+
+  padding-left: 35px;
+
+  border-left: 1px solid rgba(232, 211, 163, 0.35);
+}
+
+.event-time {
+  margin: 0 0 12px;
+
+  color: #e8d3a3;
+
+  font-size: 16px;
+
+  letter-spacing: 2px;
+}
+
+.event-location {
+  margin: 0;
+
+  color: #c9bfa9;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.event-button {
+  display: inline-block;
+
+  margin-top: 18px;
+
+  padding: 8px 18px;
+
+  border: 1px solid rgba(232, 211, 163, 0.6);
+
+  color: #e8d3a3;
+
+  text-decoration: none;
+
+  font-size: 11px;
+
+  letter-spacing: 1px;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.event-button:hover {
+  background: rgba(232, 211, 163, 0.1);
+
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   PEMISAH
+========================================= */
+
+.event-divider {
+  margin: 70px 0;
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+}
+
+.event-divider::before,
+.event-divider::after {
+  content: "";
+
+  flex: 1;
+
+  height: 1px;
+
+  background: rgba(232, 211, 163, 0.25);
+}
+
+.event-divider span {
+  color: #e8d3a3;
+
+  font-family: "Sacramento", cursive;
+
+  font-size: 32px;
+}
+
+/* =========================================
+   REVEAL DARI BAWAH
+========================================= */
+
+.reveal {
+  opacity: 0;
+
+  transform: translateY(40px);
+
+  transition:
+    opacity 2s ease-out,
+    transform 2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.show {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .navbar-menu {
+    gap: 18px;
+  }
+
+  .navbar-menu a {
+    font-size: 12px;
+  }
+
+  .navbar-brand {
+    font-size: 28px;
+  }
+
+  .hero-small {
+    font-size: 13px;
+
+    letter-spacing: 3px;
+  }
+
+  .hero-date {
+    font-size: 11px;
+
+    letter-spacing: 2px;
+  }
+
+  .countdown {
+    gap: 7px;
+
+    margin-top: 25px;
+  }
+
+  .countdown-item {
+    min-width: 62px;
+
+    padding: 9px 5px;
+  }
+
+  .countdown-item span {
+    font-size: 21px;
+  }
+
+  .countdown-item small {
+    font-size: 8px;
+  }
+
+  .couple-section {
+    padding: 90px 20px;
+  }
+
+  .couple-photo {
+    width: 190px;
+    height: 250px;
+  }
+
+  .couple-name {
+    font-size: 30px;
+    line-height: 1.15;
+  }
+
+  .couple-parents {
+    font-size: 11px;
+    line-height: 1.6;
+    margin-top: 8px;
+  }
+
+  .instagram-button {
+    width: 34px;
+    height: 34px;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  .couple-and {
+    margin: 60px 0;
+
+    font-size: 65px;
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+  #door-image {
+    width: 200px;
+
+    max-width: 52vw;
+
+    max-height: 60vh;
+  }
+
+  .heading-door {
+    font-size: 42px;
+  }
+
+  .heading-left {
+    right: calc(50% + 125px);
+  }
+
+  .heading-right {
+    left: calc(50% + 125px);
+  }
+}
+
+/* =========================================
+   HP
+========================================= */
+
+@media (max-width: 480px) {
+  #door-image {
+    width: 175px;
+
+    max-width: 48vw;
+
+    max-height: 55vh;
+  }
+
+  .heading-door {
+    font-size: 36px;
+  }
+
+  .heading-left {
+    right: calc(50% + 105px);
+  }
+
+  .heading-right {
+    left: calc(50% + 105px);
+  }
+}
+
+/* =========================================
+   HP SANGAT KECIL
+========================================= */
+
+@media (max-width: 350px) {
+  #door-image {
+    width: 150px;
+  }
+
+  .heading-door {
+    font-size: 30px;
+  }
+
+  .heading-left {
+    right: calc(50% + 90px);
+  }
+
+  .heading-right {
+    left: calc(50% + 90px);
+  }
+}
+
+@media (max-width: 768px) {
+  .event-section {
+    padding: 90px 20px;
+  }
+
+  .event-title h2 {
+    font-size: 43px;
+  }
+
+  .event-subtitle {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .event-card {
+    padding: 28px 10px;
+
+    gap: 20px;
+  }
+
+  .event-date {
+    min-width: 100px;
+  }
+
+  .event-day {
+    font-size: 42px;
+  }
+
+  .event-month {
+    font-size: 27px;
+  }
+
+  .event-year {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .event-info {
+    padding-left: 20px;
+  }
+
+  .event-time {
+    font-size: 13px;
+  }
+
+  .event-location {
+    font-size: 11px;
+  }
+
+  .event-button {
+    font-size: 9px;
+    padding: 7px 14px;
+  }
+
+  .event-divider {
+    margin: 55px 0;
+  }
+}
+/* =========================================
+   GALLERY
+========================================= */
+
+.gallery-section {
+  padding: 90px 20px;
+  background: #100d09;
+  color: #f3ead8;
+}
+
+.gallery-container {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.gallery-title {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.gallery-title p {
+  margin: 0 0 6px;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: #c9bfa9;
+}
+
+.gallery-title h2 {
+  margin: 0;
+  color: #e8d3a3;
+  font-family: "Sacramento", cursive;
+  font-size: 45px;
+  font-weight: 400;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.gallery-item {
+  width: 100%;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.7s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.03);
+}
+
+/* =========================================
+   JUDUL
+========================================= */
+
+.gallery-title {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.gallery-title p {
+  margin: 0 0 8px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #c9bfa9;
+}
+
+.gallery-title h2 {
+  margin: 0;
+  color: #e8d3a3;
+  font-family: "Sacramento", cursive;
+  font-size: 50px;
+  font-weight: 400;
+}
+
+/* =========================================
+   GRID FOTO
+========================================= */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+/* =========================================
+   FOTO
+========================================= */
+
+.gallery-item {
+  width: 100%;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  transition: transform 0.7s ease;
+}
+
+/* HOVER */
+
+.gallery-item:hover img {
+  transform: scale(1.03);
+}
+@media (max-width: 768px) {
+  .gallery-section {
+    padding: 80px 15px;
+  }
+
+  .gallery-title {
+    margin-bottom: 35px;
+  }
+
+  .gallery-title h2 {
+    font-size: 42px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+/* =========================================
+   QUOTE SECTION
+========================================= */
+
+.quote-section {
+  min-height: 100vh;
+
+  padding: 110px 20px;
+
+  background: #100d09;
+
+  color: #f3ead8;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.quote-container {
+  width: 100%;
+  max-width: 700px;
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =========================================
+   FOTO
+========================================= */
+
+.quote-photo {
+  width: 340px;
+  height: auto;
+
+  margin-bottom: 45px;
+
+  overflow: hidden;
+}
+
+.quote-photo img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+}
+
+/* =========================================
+   KUTIPAN
+========================================= */
+
+.quote-content {
+  width: 100%;
+}
+
+.quote-text {
+  margin: 0;
+
+  color: #c9bfa9;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 13px;
+
+  font-weight: 300;
+
+  line-height: 2;
+
+  letter-spacing: 0.2px;
+}
+
+.quote-source {
+  margin-top: 25px;
+
+  color: #e8d3a3;
+
+  font-size: 12px;
+
+  letter-spacing: 2px;
+}
+@media (max-width: 768px) {
+  .quote-section {
+    padding: 90px 20px;
+  }
+
+  .quote-photo {
+    width: 220px;
+    margin-bottom: 35px;
+  }
+
+  .quote-text {
+    font-size: 11px;
+    line-height: 1.9;
+  }
+
+  .quote-source {
+    font-size: 10px;
+    margin-top: 20px;
+  }
+}
+/* =========================================
+   WEDDING GIFTS
+========================================= */
+
+.gift-section {
+  min-height: 100vh;
+
+  padding: 110px 20px;
+
+  background: #100d09;
+
+  color: #f3ead8;
+
+  text-align: center;
+}
+
+.gift-container {
+  width: 100%;
+  max-width: 600px;
+
+  margin: 0 auto;
+}
+
+/* =========================================
+   TITLE
+========================================= */
+
+.gift-title {
+  margin-bottom: 45px;
+}
+
+.gift-title > p {
+  margin: 0 0 8px;
+
+  font-size: 10px;
+
+  letter-spacing: 4px;
+
+  color: #c9bfa9;
+}
+
+.gift-title h2 {
+  margin: 0 0 18px;
+
+  color: #e8d3a3;
+
+  font-family: "Sacramento", cursive;
+
+  font-size: 55px;
+
+  font-weight: 400;
+}
+
+.gift-description {
+  max-width: 500px;
+
+  margin: 0 auto;
+
+  color: #c9bfa9;
+
+  font-size: 12px;
+
+  line-height: 1.8;
+}
+
+/* =========================================
+   GIFT CARD
+========================================= */
+
+.gift-card {
+  position: relative;
+
+  width: 100%;
+
+  margin-bottom: 20px;
+
+  padding: 25px;
+
+  border: 1px solid rgba(232, 211, 163, 0.3);
+
+  background: linear-gradient(
+    145deg,
+    rgba(232, 211, 163, 0.06),
+    rgba(255, 255, 255, 0.015)
+  );
+
+  text-align: left;
+
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.gift-card:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(232, 211, 163, 0.65);
+}
+
+/* =========================================
+   BANK
+========================================= */
+
+.gift-card-header {
+  display: flex;
+
+  justify-content: flex-end;
+
+  margin-bottom: 25px;
+}
+
+.gift-bank {
+  color: #e8d3a3;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  letter-spacing: 2px;
+}
+
+/* =========================================
+   ACCOUNT
+========================================= */
+
+.gift-account small {
+  color: #8f8779;
+
+  font-size: 10px;
+
+  letter-spacing: 1px;
+}
+
+.account-number {
+  margin-top: 7px;
+
+  color: #f3ead8;
+
+  font-size: 25px;
+
+  letter-spacing: 3px;
+
+  font-weight: 400;
+}
+
+.gift-account p {
+  margin: 7px 0 0;
+
+  color: #c9bfa9;
+
+  font-size: 11px;
+}
+
+/* =========================================
+   COPY BUTTON
+========================================= */
+
+.copy-button {
+  margin-top: 20px;
+
+  padding: 8px 16px;
+
+  border: 1px solid rgba(232, 211, 163, 0.45);
+
+  background: transparent;
+
+  color: #e8d3a3;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.copy-button:hover {
+  background: rgba(232, 211, 163, 0.1);
+
+  transform: translateY(-2px);
+}
+@media (max-width: 768px) {
+  .gift-section {
+    padding: 85px 18px;
+  }
+
+  .gift-title h2 {
+    font-size: 45px;
+  }
+
+  .gift-description {
+    font-size: 11px;
+
+    line-height: 1.7;
+  }
+
+  .gift-card {
+    padding: 20px;
+  }
+
+  .account-number {
+    font-size: 19px;
+
+    letter-spacing: 2px;
+  }
+
+  .gift-bank {
+    font-size: 11px;
+  }
+
+  .copy-button {
+    font-size: 9px;
+  }
+}
+/* =========================================
+   RSVP SECTION
+========================================= */
+
+.rsvp-section {
+  min-height: 100vh;
+
+  padding: 110px 20px;
+
+  background: #100d09;
+
+  color: #f3ead8;
+}
+
+.rsvp-container {
+  width: 100%;
+
+  max-width: 600px;
+
+  margin: 0 auto;
+}
+
+/* =========================================
+   TITLE
+========================================= */
+
+.rsvp-title {
+  text-align: center;
+
+  margin-bottom: 45px;
+}
+
+.rsvp-title p {
+  margin: 0 0 8px;
+
+  color: #c9bfa9;
+
+  font-size: 10px;
+
+  letter-spacing: 4px;
+}
+
+.rsvp-title h2 {
+  margin: 0 0 15px;
+
+  color: #e8d3a3;
+
+  font-family: "Sacramento", cursive;
+
+  font-size: 52px;
+
+  font-weight: 400;
+
+  line-height: 1.1;
+}
+
+.rsvp-title span {
+  display: block;
+
+  max-width: 450px;
+
+  margin: auto;
+
+  color: #c9bfa9;
+
+  font-size: 11px;
+
+  line-height: 1.8;
+}
+
+/* =========================================
+   FORM
+========================================= */
+
+.rsvp-form {
+  padding: 30px;
+
+  border: 1px solid rgba(232, 211, 163, 0.3);
+
+  background: rgba(232, 211, 163, 0.03);
+}
+
+/* =========================================
+   GROUP
+========================================= */
+
+.rsvp-group {
+  margin-bottom: 22px;
+}
+
+.rsvp-group > label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #c9bfa9;
+
+  font-size: 10px;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+/* =========================================
+   INPUT
+========================================= */
+
+.rsvp-group input[type="text"],
+.rsvp-group select,
+.rsvp-group textarea {
+  width: 100%;
+
+  padding: 12px 14px;
+
+  border: 1px solid rgba(232, 211, 163, 0.3);
+
+  outline: none;
+
+  background: rgba(0, 0, 0, 0.2);
+
+  color: #f3ead8;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 11px;
+
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.rsvp-group input::placeholder,
+.rsvp-group textarea::placeholder {
+  color: #817a6e;
+}
+
+.rsvp-group input[type="text"]:focus,
+.rsvp-group select:focus,
+.rsvp-group textarea:focus {
+  border-color: rgba(232, 211, 163, 0.8);
+
+  background: rgba(232, 211, 163, 0.04);
+}
+
+.rsvp-group textarea {
+  resize: vertical;
+
+  min-height: 100px;
+}
+
+/* =========================================
+   SELECT OPTION
+========================================= */
+
+.rsvp-group select option {
+  background: #100d09;
+
+  color: #f3ead8;
+}
+
+/* =========================================
+   KEHADIRAN
+========================================= */
+
+.attendance-options {
+  display: flex;
+
+  gap: 12px;
+}
+
+.attendance-option {
+  flex: 1;
+
+  position: relative;
+
+  cursor: pointer;
+}
+
+.attendance-option input {
+  position: absolute;
+
+  opacity: 0;
+}
+
+.attendance-option span {
+  display: block;
+
+  padding: 11px;
+
+  border: 1px solid rgba(232, 211, 163, 0.3);
+
+  color: #c9bfa9;
+
+  text-align: center;
+
+  font-size: 10px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.attendance-option input:checked + span {
+  background: rgba(232, 211, 163, 0.12);
+
+  border-color: #e8d3a3;
+
+  color: #e8d3a3;
+}
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.rsvp-submit {
+  width: 100%;
+
+  padding: 13px;
+
+  margin-top: 5px;
+
+  border: 1px solid rgba(232, 211, 163, 0.6);
+
+  background: transparent;
+
+  color: #e8d3a3;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.rsvp-submit:hover {
+  background: #e8d3a3;
+
+  color: #100d09;
+
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   STATUS
+========================================= */
+
+.rsvp-status {
+  min-height: 20px;
+
+  margin-top: 18px;
+
+  text-align: center;
+
+  color: #e8d3a3;
+
+  font-size: 10px;
+}
+
+/* =========================================
+   DISQUS
+========================================= */
+
+.disqus-wrapper {
+  margin-top: 80px;
+
+  padding-top: 50px;
+
+  border-top: 1px solid rgba(232, 211, 163, 0.2);
+}
+
+.disqus-title {
+  margin-bottom: 30px;
+
+  text-align: center;
+}
+
+.disqus-title p {
+  margin: 0 0 5px;
+
+  color: #c9bfa9;
+
+  font-size: 9px;
+
+  letter-spacing: 3px;
+}
+
+.disqus-title h3 {
+  margin: 0;
+
+  color: #e8d3a3;
+
+  font-family: "Sacramento", cursive;
+
+  font-size: 42px;
+
+  font-weight: 400;
+}
+
+#disqus_thread {
+  width: 100%;
+
+  text-align: left;
+}
+/* =========================================
+   RSVP MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .rsvp-section {
+    padding: 85px 18px;
+  }
+
+  .rsvp-title h2 {
+    font-size: 43px;
+  }
+
+  .rsvp-title span {
+    font-size: 10px;
+  }
+
+  .rsvp-form {
+    padding: 20px;
+  }
+
+  .attendance-options {
+    gap: 8px;
+  }
+
+  .attendance-option span {
+    font-size: 9px;
+
+    padding: 10px 5px;
+  }
+
+  .disqus-wrapper {
+    margin-top: 60px;
+
+    padding-top: 40px;
+  }
+
+  .disqus-title h3 {
+    font-size: 36px;
+  }
+}
+.person-intro {
+  max-width: 350px;
+  margin: 100px auto 0 !important;
+  padding: 0 !important;
+
+  font-family: var(--serif);
+  font-size: 0.72rem;
+  line-height: 1.7;
+  text-align: center;
+  font-style: italic;
+  color: #e8d3a3;
+
+  opacity: 0;
+  transform: translateY(25px);
+  transition:
+    opacity 1.5s ease,
+    transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.person-intro.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Foto pengantin pria dibuat sangat dekat dengan teks */
+.person-intro + .person-image {
+  margin-top: 5px !important;
+  padding-top: 0 !important;
+}
+
+/* =========================================
+   CLOSING / PENUTUP
+========================================= */
+
+.closing-section {
+  position: relative;
+
+  min-height: 100vh;
+  min-height: 100svh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 70px 20px;
+
+  overflow: hidden;
+
+  background-image: url("assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: #e8d3a3;
+}
+
+/* Overlay foto */
+
+.closing-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(rgba(35, 29, 25, 0.58), rgba(35, 29, 25, 0.7));
+
+  z-index: 1;
+}
+
+/* Konten */
+
+.closing-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(90%, 600px);
+
+  margin: auto;
+
+  text-align: center;
+}
+
+/* Kalimat pembuka */
+
+.closing-thankyou {
+  font-family: var(--serif);
+
+  font-size: 1.05rem;
+
+  line-height: 1.6;
+
+  margin-bottom: 20px;
+}
+
+/* Paragraf */
+
+.closing-content
+  > p:not(.closing-thankyou):not(.closing-salam):not(.closing-love) {
+  font-family: var(--serif);
+
+  font-size: 0.78rem;
+
+  line-height: 1.75;
+
+  max-width: 500px;
+
+  margin: 0 auto 18px;
+}
+
+/* Salam */
+
+.closing-salam {
+  font-family: var(--serif);
+
+  font-size: 0.78rem;
+
+  line-height: 1.6;
+
+  margin-top: 25px;
+
+  margin-bottom: 25px;
+}
+
+/* Dengan penuh cinta */
+
+.closing-love {
+  font-family: var(--serif);
+
+  font-size: 0.72rem;
+
+  font-style: italic;
+
+  margin-bottom: 5px;
+}
+
+/* Nama */
+
+.closing-content h2 {
+  font-family: var(--script);
+
+  font-size: clamp(3.5rem, 15vw, 6rem);
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  margin-top: 5px;
+
+  text-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* & */
+
+.closing-content h2 span {
+  font-family: var(--serif);
+
+  font-size: 0.4em;
+
+  margin: 0 5px;
+}
+
+/* =========================================
+   ANIMASI
+========================================= */
+
+.closing-content.reveal {
+  opacity: 0;
+
+  transform: translateY(40px);
+
+  transition:
+    opacity 1.5s ease,
+    transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.closing-content.reveal.show {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+/* =========================================
+   KHUSUS HP
+========================================= */
+
+@media (max-width: 600px) {
+  .closing-section {
+    min-height: 100svh;
+
+    padding: 60px 18px;
+
+    background-position: center center;
+  }
+
+  .closing-content {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .closing-thankyou {
+    font-size: 0.95rem;
+
+    line-height: 1.6;
+
+    margin-bottom: 16px;
+  }
+
+  .closing-content
+    > p:not(.closing-thankyou):not(.closing-salam):not(.closing-love) {
+    font-size: 0.68rem;
+
+    line-height: 1.7;
+
+    margin-bottom: 15px;
+  }
+
+  .closing-salam {
+    font-size: 0.68rem;
+
+    margin-top: 20px;
+
+    margin-bottom: 20px;
+  }
+
+  .closing-love {
+    font-size: 0.65rem;
+  }
+
+  .closing-content h2 {
+    font-size: 4rem;
+
+    margin-top: 5px;
+  }
+}
+.made-by {
+  position: absolute;
+
+  left: 18px;
+  bottom: 15px;
+
+  z-index: 3;
+
+  font-family: var(--serif);
+  font-size: 0.55rem;
+  letter-spacing: 0.5px;
+
+  color: #e8d3a3;
+
+  opacity: 0.85;
+}
+@media (max-width: 600px) {
+  .made-by {
+    left: 15px;
+    bottom: 12px;
+    font-size: 0.5rem;
+  }
+}
