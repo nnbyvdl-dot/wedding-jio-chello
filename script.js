@@ -41,7 +41,7 @@ doorImage.addEventListener("click", function () {
   ================================== */
 
   setTimeout(function () {
-    doorImage.src = "assets/door_open.png";
+    doorImage.src = "door_open.png";
   }, 250);
 
   /* ==================================
